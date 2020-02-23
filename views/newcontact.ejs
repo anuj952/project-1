@@ -1,0 +1,24 @@
+<%- include ('partials/header') %>
+<div class = "ui main text container segment" >
+	<div class="ui huge header" align="center">CONTACT FORM</div>
+<form class="ui form" action="/contact" method="POST">
+	<div class="field">
+		<label>Name</label>
+		<input type="text" name="contact[name]" placeholder="Name">
+	</div>
+	<div class="field">
+		<label>Email Id</label>
+		<input type="text" name="contact[email]" placeholder="Email Id">
+    </div>
+    <div class="field">
+		<label>Subject</label>
+		<input type="text" name="contact[subject]" placeholder="Subject">
+    </div>
+	<div class="field">
+		<label>Message</label>
+		<textarea name="contact[message]" placeholder="Message"></textarea>
+		<div align="center" style="padding-top : 2em;"><button class="ui button blue">SUBMIT</button></div>
+	</div>
+
+</form>
+</div>

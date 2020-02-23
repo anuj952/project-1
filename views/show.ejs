@@ -1,0 +1,30 @@
+<%- include ('partials/header') %>
+
+<div class = "ui main text container segment">
+	<div class="ui huge header"><%= blog.title %></div>
+	<div class ="ui top attached ">
+		<div class="item">
+			<img class="ui centered rounded image" src= "<%= blog.image %>" ,width="200" height="200">
+			<div class="content">
+				<span><%= blog.created.toDateString() %></span>
+			</div>
+			<div class="content">
+				<p>AUTHOR -<%= blog.author %></p>
+			</div>
+			<div class ="description">
+				<p><%= blog.body %></p>
+			</div>
+			<% if(CurrentUser && CurrentUser.isAdmin){ %>
+				<a class="ui primary button" href="/blogs/<%= blog._id %>/edit">EDIT</a>
+				<form id="delete" action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+					<button class="ui primary button">DELETE</button>
+				</form>
+			<% } %>
+
+			
+			
+			
+		</div>
+		
+	</div>
+</div>

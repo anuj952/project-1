@@ -1,0 +1,59 @@
+<%- include ('partials/header') %>
+
+
+<div class="ui main text container" style="margin-top: 25px;">
+	<div class="ui huge header" style="text-align: center;">BLOGS</div>
+	<button class="btn btn-success" id="sortbutton">Sort By Date</button>
+	<div class="ui top attached segment">
+		<div class="ui divided items">
+				<% blogs.forEach(function(x){ %>
+					<div class="item">
+						<div class="image">
+							<img src= "<%= x.image %>" ,width="200" height="200">
+						</div>
+						
+						<div class = "title">
+							<a class="header" href="/blogs/<%= x._id %>"><%= x.title %></a>
+							
+							<div class="date">
+								<span><%= x.created.toDateString() %></span>
+							</div>
+							
+							<div class="description">
+								<p><%- x.body.substring(0,100) %>.....</p>
+							</div>
+							
+							<div class="extra">
+								<a class="ui floated basic violet button" href="/blogs/<%= x._id %>">Read More
+									<i class="right chevron icon"></i>
+								</a>
+							</div>
+						</div>
+						
+						
+					</div>
+				<% }) %>
+		</div>
+	</div>
+</div>
+
+
+<div id="but" class="ui container ">
+	<% if(CurrentUser && CurrentUser.isAdmin){ %>
+	<a href="/blogs/new"><div class="ui bottom attached button blue" tabindex="0"><h4>ADD NEW BLOG</h4></div></a>
+</div>
+<% } %>
+
+<script type="text/javascript">
+$("#sortbutton").click( function() {
+alert("sdfadf");
+function sort()
+{
+var blogs = $('.item');
+blogs.sort(function(a, b){ return $(a).data("date")-$(b).data("date")});
+$(".items").html(products);
+
+}
+
+});
+</script>

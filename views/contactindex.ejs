@@ -1,0 +1,17 @@
+<%- include ('partials/header') %>
+<table class="ui striped table" >
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>More Info</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% contact.forEach(function(x){ %>
+        <tr>
+            <td><%= x.name %></td>
+            <td><a href="/contactindex/<%= x._id %>">More Info</a></td>
+        </tr>
+  <% }) %>
+    </tbody>
+  </table>

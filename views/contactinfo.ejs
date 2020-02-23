@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+<body>
+    <table class="table table-bordered" id="target"> 
+        <tr>
+            <td>NAME - </td>
+            <td><%= info.name %></td>
+        </tr>
+        <tr>
+            <td>email - </td>
+            <td><%= info.email %></td>
+        </tr>
+        <tr>
+            <td>SUBJECT - </td>
+            <td><%= info.subject %></td>
+        </tr>
+        <tr>
+            <td>MESSAGE - </td>
+            <td><%= info.message %></td>
+        </tr>
+    </table>
+
+
+</body>
+
+<center><button class="btn btn-success" onclick="Export()" >Generate Pdf</button></center>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script type="text/javascript">
+    function Export() {
+        html2canvas(document.getElementById('target'), {
+            onrendered: function (canvas) {
+                var data = canvas.toDataURL();
+                var docDefinition = {
+                    content: [{
+                        image: data,
+                        width: 500
+                    }]
+                };
+                pdfMake.createPdf(docDefinition).download("Table.pdf");
+            }
+        });
+    }
+</script>
+</html>
