@@ -1,0 +1,4 @@
+- This project is for a Marketing Agency Website .
+- Login for admin can be done using Id - ADMIN and password - admin .
+- The contact applications can only be seen in navbar when logged in .
+- Only Admin can edit and delete the blogs.
